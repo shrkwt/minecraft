@@ -2,7 +2,7 @@
 ## License
 This addon is made by Apix-Loi (Github.com/apix-loi)
 
-This addon works in Minecraft Bedrock, Pocket Edition, Bedrock Servers...
+*This addon works in Minecraft Bedrock, Pocket Edition, Bedrock Servers...*
 
 This is Important to read :
 
