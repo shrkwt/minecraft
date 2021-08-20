@@ -12,15 +12,15 @@ This is Important to read :
 
  (1) Direct Links
  
-     Zip     :   https://apicloud.eu.org/files/op_ores.zip
+     Zip     :   https://apicloud.eu.org/files/op-ores.zip
      
-     Mcaddon :   https://apicloud.eu.org/files/op_ores.mcaddon
+     Mcaddon :   https://apicloud.eu.org/files/op-ores.mcaddon
      
  (2) Github Links
  
-     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.zip
+     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op-ores.zip
      
-     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.mcaddon
+     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op-ores.mcaddon
      
  (3) Mcpedl.com
  
