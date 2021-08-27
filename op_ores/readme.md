@@ -1,32 +1,40 @@
 # Overpowered Ores [Bedrock/PE]
 ## License
-This addon is made by Apix-Loi (Github.com/apix-loi)
+This addon is made by GamingLnk (apix-loi)
 
 *This addon works in Minecraft Bedrock, Pocket Edition, Bedrock Servers...*
 
 This is Important to read :
 
 1. You are allowed to make videos about this Minecraft addon.
-2. You aren't allowed to provide this addon with your download link.
-3. You can only use/provide these download links :
+3. These are official download links :
 
  (1) Direct Links
  
-     Zip     :   https://apicloud.eu.org/files/op-ores.zip
+     Zip     :   https://apicloud.eu.org/addons/op_ores.zip
      
-     Mcaddon :   https://apicloud.eu.org/files/op-ores.mcaddon
+     Mcaddon :   https://apicloud.eu.org/addons/op_ores.mcaddon
      
  (2) Github Links
  
-     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op-ores.zip
+     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.zip
      
-     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op-ores.mcaddon
+     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.mcaddon
      
  (3) Mcpedl.com
  
-    Link    : https://mcpedl.com/overpowered_ores/
+     Link    : https://mcpedl.com/overpowered-ores-addon/
+ 
+ (4) Mediafire
 
-4. You *can use shortened/paid links for this addon but*, will have to redirect to links provided above only.
+     Zip     : https://www.mediafire.com/file/f96i7t8t4yo76d5/op_ores.zip/file
 
-5. You can do modifications in the addon.
-6. You can also provide modified version to others.
+     Mcaddon : https://www.mediafire.com/file/q7dzyheugt3jigg/op_ores.mcaddon/file
+
+4. You *can use shortened/paid links for this addon*.
+
+Your shortened link should only be redirected to any one link mentioned above.
+
+5. You can do modifications in this addon for personal use only.
+
+Thanks for reading...
