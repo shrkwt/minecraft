@@ -11,9 +11,9 @@ This is Important to read :
 
  (1) Direct Links
  
-     Zip     :   https://speedynet.eu.org/cdn/op_ores_v2.zip
+     Zip     :   https://speedynet.eu.org/addons/op_ores_v2.zip
      
-     Mcaddon :   https://speedynet.eu.org/cdn/op_ores_v2.mcaddon
+     Mcaddon :   https://speedynet.eu.org/addons/op_ores_v2.mcaddon
      
  (2) Github Links
  
