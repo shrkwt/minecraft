@@ -27,9 +27,9 @@ This is Important to read :
  
  (4) Mediafire
 
-     Zip     : https://www.mediafire.com/file/f96i7t8t4yo76d5/op_ores.zip/file
+     Zip     : https://www.mediafire.com/file/1cfqb24tjpa0p73/op_ores_v2.zip/file
 
-     Mcaddon : https://www.mediafire.com/file/q7dzyheugt3jigg/op_ores.mcaddon/file
+     Mcaddon : https://www.mediafire.com/file/8hd5sogt3cbpqr2/op_ores_v2.mcaddon/file
 
 4. You *can use shortened/paid links over these links for this addon*.
 
