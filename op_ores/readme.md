@@ -11,15 +11,15 @@ This is Important to read :
 
  (1) Direct Links
  
-     Zip     :   https://apicloud.eu.org/addons/op_ores.zip
+     Zip     :   https://speedynet.eu.org/cdn/op_ores_v2.zip
      
-     Mcaddon :   https://apicloud.eu.org/addons/op_ores.mcaddon
+     Mcaddon :   https://speedynet.eu.org/cdn/op_ores_v2.mcaddon
      
  (2) Github Links
  
-     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.zip
+     Zip     : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores_v2.zip
      
-     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores.mcaddon
+     Mcaddon : https://github.com/apix-loi/minecraft/tree/main/op_ores/op_ores_v2.mcaddon
      
  (3) Mcpedl.com
  
@@ -31,7 +31,7 @@ This is Important to read :
 
      Mcaddon : https://www.mediafire.com/file/q7dzyheugt3jigg/op_ores.mcaddon/file
 
-4. You *can use shortened/paid links for this addon*.
+4. You *can use shortened/paid links over these links for this addon*.
 
 Your shortened link should only be redirected to any one link mentioned above.
 
