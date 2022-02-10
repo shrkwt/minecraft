@@ -1,2 +1,2 @@
-# minecraft addons by Apix-loi
-Minecraft addons, resource packs by apix-loi are uploaded here.
+# minecraft addons and resources by apezNeon
+Just a repository covering every single minecraft addon and resources I made.
