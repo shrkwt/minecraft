@@ -1,2 +1,3 @@
 # minecraft addons by apezNeon
-Just a repository covering every single minecraft addon and resources I made.
+- This is a repository that hosts all my minecraft addons and resource packs.
+- Files from this repo. are available at : https://cdn.jsdelivr.net/gh/gaminglnk/minecraft@master/
