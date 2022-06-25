@@ -7,6 +7,7 @@
 ---
 ## Server details;
 *Servers are ready to rock! Online timings will be shown up in a while.*
+*Webpage is in early phase, new features will be added shortly.*
 
 ### Bedrock server :
 - IP : mcpe.neonsmp.eu.org
