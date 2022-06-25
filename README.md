@@ -18,4 +18,6 @@
 
 ## Java Server details :
 - IP : java.neonsmp.eu.org:64367
-  [Enter the whole IP:Port as an IP]
+
+| 😶  | Be sure to enter IP in ip:port format! | 😶  |
+| :-: | :-------------------------------------: | :-: |
