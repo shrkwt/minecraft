@@ -10,9 +10,9 @@
 *Webpage is in early phase, new features will be added shortly.*
 
 ### Bedrock server :
-- IP : mcpe.neonsmp.eu.org
-- Port : 46626
+- IP : <a href="minecraft://?addExternalServer=Neon-MultiPlay|mcpe.neonsmp.eu.org:57429">mcpe.neonsmp.eu.org</a>
+- Port : 57429
 
 ### Java server :
-- IP : java.neonsmp.eu.org:64367
+- IP : java.neonsmp.eu.org:64367 (currently unavailable!)
 - Be sure to enter IP in ip:port format!
