@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minecraft Bedrock Server Status</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+      body {
+        font-family: "Lexend Deca", sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+
+      #server-info {
+        margin: 0 auto 30px auto;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      #server-info p {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 0;
+      }
+
+      #server-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0 0;
+      }
+
+      #server-info li {
+        margin-bottom: 10px;
+      }
+
+      #server-info li strong {
+        display: inline-block;
+        min-width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Minecraft Bedrock Server Status</h1>
+    <div id="server-info">
+      <p>Fetching server status...</p>
+    </div>
+    <script>
+      const serverInfo = document.getElementById("server-info");
+
+      fetch("https://api.mcsrvstat.us/bedrock/2/play.neonsmp.eu.org:11648")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.online) {
+            const players = data.players.online;
+            const maxPlayers = data.players.max;
+            const version = data.version;
+            const motd = data.motd.html.join("<br>");
+            const hostname = data.hostname;
+            const port = data.port;
+            const gamemode = data.gamemode;
+            const apiVersion = data.debug.apiversion;
+            const map = data.map;
+
+            serverInfo.innerHTML = `
+              <p>Server is online</p>
+              <ul>
+                <li><strong>Hostname:</strong> ${hostname}</li>
+                <li><strong>Port:</strong> ${port}</li>
+                <li><strong>MOTD:</strong> ${motd}</li>
+                <li><strong>Players online:</strong> ${players}/${maxPlayers}</li>
+                <li><strong>Game mode:</strong> ${gamemode}</li>
+                <li><strong>World Name:</strong> ${map}</li>
+                <li><strong>API version:</strong> ${apiVersion}</li>
+                <li><strong>Version:</strong> ${version}</li>
+              </ul>
+            `;
+          } else {
+            serverInfo.innerHTML = "<p>Server is offline</p>";
+          }
+        })
+        .catch((error) => {
+          serverInfo.innerHTML = "<p>Error fetching server status</p>";
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
