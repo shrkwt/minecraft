@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+    <!-- Setup theme-color -->
+    <!-- start theme color meta headers -->
+    <meta name="theme-color" content="#151515" />
+    <meta name="msapplication-navbutton-color" content="#151515" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <!-- end theme color meta headers -->
+
+    <!-- Setup Google Analytics -->
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Minecraft Repository | NeonSMP</title>
+    <meta name="generator" content="Jekyll v3.9.3" />
+    <meta property="og:title" content="Minecraft Repository" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Minecraft addons, resource packs and mods, as well as multiplayer server details are available here."
+    />
+    <meta
+      property="og:description"
+      content="Minecraft addons, resource packs and mods, as well as multiplayer server details are available here."
+    />
+    <link rel="canonical" href="https://neonsmp.eu.org/" />
+    <meta property="og:url" content="https://neonsmp.eu.org/" />
+    <meta property="og:site_name" content="NeonSMP" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Minecraft Repository" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "description": "Minecraft addons, resource packs and mods, as well as multiplayer server details are available here.",
+        "headline": "Minecraft Repository",
+        "name": "NeonSMP",
+        "url": "https://neonsmp.eu.org/"
+      }
+    </script>
+    <!-- End Jekyll SEO tag -->
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>@apezNeon's Repo</h1>
+        </a>
+        <h2>
+          Minecraft addons, resource packs and mods, as well as multiplayer
+          server details are available here.
+        </h2>
+
+        <section id="downloads">
+          <a
+            href="minecraft://?addExternalServer=Accently|play.neonsmp.eu.org:11648"
+            class="btn btn-github"
+            ><span class="icon"></span>Connect to server...</a
+          >
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="minecraft-repository">neonsmp.eu.org/status</h1>
+        <ul>
+          <li>
+            This is a repository that hosts all my minecraft addons and resource
+            packs.
+          </li>
+          <li>
+            Files from this repo. are available at :
+            <a href="https://cdn.jsdelivr.net/gh/gaminglnk/minecraft@master/"
+              ><img
+                src="https://data.jsdelivr.com/v1/package/gh/gaminglnk/minecraft/badge"
+            /></a>
+          </li>
+        </ul>
+        <br />
+        <hr />
+        <br />
+        <h2 id="server-details">Server details:</h2>
+        <p>
+          Servers are ready to rock! Online timings will be shown up in a while.
+          Webpage is in early phase, new features will be added shortly.
+        </p>
+
+        <br />
+        <h3 id="bedrock-server-">Bedrock server :</h3>
+        <ul>
+          <li>
+            IP :
+            <a
+              href="minecraft://?addExternalServer=Accently|play.neonsmp.eu.org:11648"
+              >play.neonsmp.eu.org</a
+            >
+          </li>
+          <li>Port : 11648</li>
+        </ul>
+        <hr />
+
+        <h3>Minecraft Bedrock Server Status</h3>
+        <div id="server-info">
+          <p>Fetching server status...</p>
+        </div>
+      </section>
+    </div>
+    <script>
+      const serverInfo = document.getElementById("server-info");
+
+      fetch("https://api.mcsrvstat.us/bedrock/2/play.neonsmp.eu.org:11648")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.online) {
+            const players = data.players.online;
+            const maxPlayers = data.players.max;
+            const version = data.version;
+            const motd = data.motd.html.join("<br>");
+            const hostname = data.hostname;
+            const port = data.port;
+            const gamemode = data.gamemode;
+            const map = data.map;
+
+            serverInfo.innerHTML = `
+              <h3>Server is online...</h3>
+              <ul>
+                <li><strong>Hostname:</strong> ${hostname}</li>
+                <li><strong>Port:</strong> ${port}</li>
+                <li><strong>MOTD:</strong> ${motd}</li>
+                <li><strong>Players online:</strong> ${players}/${maxPlayers}</li>
+                <li><strong>Version:</strong> ${version}</li>
+                <li><strong>Game mode:</strong> ${gamemode}</li>
+                <li><strong>World Name:</strong> ${map}</li>
+              </ul>
+            `;
+          } else {
+            serverInfo.innerHTML = "<h3>Server is offline...</h3>";
+          }
+        })
+        .catch((error) => {
+          serverInfo.innerHTML = "<p>Error fetching server status</p>";
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
