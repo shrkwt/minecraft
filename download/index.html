@@ -1,71 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+    <!-- Setup theme-color -->
+    <!-- start theme color meta headers -->
+    <meta name="theme-color" content="#151515" />
+    <meta name="msapplication-navbutton-color" content="#151515" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
     />
-    <title>MCDL</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    <!-- end theme color meta headers -->
+
+    <!-- Setup Google Analytics -->
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Download page</title>
+    <meta name="generator" content="Jekyll v3.9.3" />
+    <meta property="og:title" content="Minecraft Repository" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Minecraft addons, resource packs and mods, as well as multiplayer server details are available here."
+    />
+    <meta
+      property="og:description"
+      content="Minecraft addons, resource packs and mods, as well as multiplayer server details are available here."
+    />
+    <link rel="canonical" href="https://neonsmp.eu.org/" />
+    <meta property="og:url" content="https://neonsmp.eu.org/" />
+    <meta property="og:site_name" content="NeonSMP" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Minecraft Repository" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "description": "Minecraft addons, resource packs and mods, as well as multiplayer server details are available here.",
+        "headline": "Minecraft Repository",
+        "name": "NeonSMP",
+        "url": "https://neonsmp.eu.org/"
       }
-      body {
-        font-family: "Lexend Deca", sans-serif;
-      }
-      #download {
-        font: normal 26px "Lexend Deca", Verdana, sans-serif;
-        text-align: center;
-      }
-      .footer {
-        font: normal normal 12px "Lexend Deca", Verdana, sans-serif;
-        color: #444;
-        text-align: center;
-      }
-      .footer a {
-        font: normal bold 12px "Lexend Deca", Verdana, sans-serif;
-        color: rgb(255, 0, 119);
-      }
-      a:link {
-        text-decoration: none;
-      }
-      #file_name,
-      #file_size {
-        font: 14px "Lexend Deca", Verdana, sans-serif;
-        display: block;
-      }
-    </style>
+    </script>
+    <!-- End Jekyll SEO tag -->
   </head>
 
   <body>
-    <br /><br />
-    <div id="download">
-      <a id="linker" href="https://neonsmp.eu.org/download?act=Download_empty">
-        <img src="https://dl4.9minecraft.net/download-button.png" border="0" />
-      </a>
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>@apezNeon's D-load</h1>
+        </a>
+        <h2>
+          The page where all downloads from `neonsmp.eu.org` are linked for ad
+          revenue.
+        </h2>
 
-      <span id="file_name">File name: <strong>Nothing</strong></span>
-      -
-      <span id="file_size"> File size: <strong>0 MB</strong></span>
+        <section id="downloads">
+          <a
+            href="minecraft://?addExternalServer=Accently|play.neonsmp.eu.org:11648"
+            class="btn btn-github"
+            ><span class="icon"></span>Join server...</a
+          >
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="minecraft-repository">neonsmp.eu.org/download</h1>
+        <ul>
+          <li>
+            This is page is final download page for all files hosted on the
+            repo. or outside.
+          </li>
+          <li>
+            Files from the repo. are available at :
+            <a href="https://cdn.jsdelivr.net/gh/gaminglnk/minecraft@master/"
+              >JsDelivr</a
+            >
+          </li>
+        </ul>
+        <br />
+        <hr />
+        <br />
+        <div style="text-align: center" id="download">
+          <a
+            id="linker"
+            href="https://neonsmp.eu.org/download?act=Download_empty"
+          >
+            <img
+              src="https://neonsmp.eu.org/download/download-button.png"
+              border="0"
+            />
+          </a>
+          <br />
+          <span id="file_name">File name: <strong>Nothing</strong></span>
+          -
+          <span id="file_size"> File size: <strong>0 MB</strong></span>
+        </div>
+
+        <br />
+      </section>
     </div>
 
-    <br />
-    <div style="padding: 10px" class="footer">
-      Copyright ©
-      <a href="https://neonsmp.eu.org/" title="apezNeon">apezNeon</a>
-    </div>
-
+    <footer>
+      <div style="padding: 10px; text-align: center" class="footer">
+        Copyright ©
+        <a href="https://neonsmp.eu.org/download" title="apezNeon">apezNeon</a>
+      </div>
+    </footer>
     <script>
       const currentYear = new Date().getFullYear();
       const yearElement = document.querySelector(".footer");
-      yearElement.innerHTML += " " + currentYear + ".  All rights reserved.";
+      yearElement.innerHTML +=
+        " " + currentYear + "./  Every file is not stored on the repo.";
 
+      // Rest of code.
       const urlParams = new URLSearchParams(window.location.search);
       const fileName = urlParams.get("file");
       const driveId = urlParams.get("drive");
