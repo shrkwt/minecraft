@@ -69,7 +69,7 @@
 
         <section id="downloads">
           <a
-            href="minecraft://?addExternalServer=Accently|play.neonsmp.eu.org:11648"
+            href="minecraft://?addExternalServer=Enchousen|play.neonsmp.eu.org:45065"
             class="btn btn-github"
             ><span class="icon"></span>Connect to server...</a
           >
@@ -108,11 +108,11 @@
           <li>
             IP :
             <a
-              href="minecraft://?addExternalServer=Accently|play.neonsmp.eu.org:11648"
+              href="minecraft://?addExternalServer=Enchousen|play.neonsmp.eu.org:45065"
               >play.neonsmp.eu.org</a
             >
           </li>
-          <li>Port : 11648</li>
+          <li>Port : 45065</li>
         </ul>
         <hr />
 
@@ -125,7 +125,7 @@
     <script>
       const serverInfo = document.getElementById("server-info");
 
-      fetch("https://api.mcsrvstat.us/bedrock/2/play.neonsmp.eu.org:11648")
+      fetch("https://api.mcsrvstat.us/bedrock/2/play.neonsmp.eu.org:45065")
         .then((response) => response.json())
         .then((data) => {
           if (data.online) {
