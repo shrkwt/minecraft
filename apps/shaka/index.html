@@ -37,6 +37,7 @@
             margin: 0;
             background-color: #000;
         }
+
         .wrapper {
             width: 100%;
             max-width: 925px;
@@ -46,11 +47,14 @@
             overflow: hidden;
             background-color: #000;
         }
+
         #video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
         }
+
         #video-container video {
             position: absolute;
             top: 0;
@@ -68,26 +72,45 @@
 
     <!-- Shaka Player Container -->
     <div class="wrapper">
-    <div class="youtube-theme" id="video-container" data-shaka-player-container
-        data-shaka-player-cast-receiver-id="07AEE832">
-        <video poster='https://picsum.photos/1200/675.webp?grayscale' data-shaka-player id="video"></video>
-    </div>
+        <div class="youtube-theme" id="video-container" data-shaka-player-container
+            data-shaka-player-cast-receiver-id="07AEE832">
+            <video poster='https://picsum.photos/1200/675.webp?grayscale' data-shaka-player id="video"></video>
+        </div>
     </div>
 
     <script>
-        document.addEventListener('shaka-ui-loaded', init);
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function getParameter(parameterName) {
             let parameters = new URLSearchParams(window.location.search);
             return parameters.get(parameterName);
         }
 
+        // Code to trigger fullscreen in the presence of "?fullscreen"
+        window.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.has("fullscreen")) {
+                const wrapper = document.querySelector(".wrapper");
+                const videoContainer = document.querySelector("#video-container");
+
+                if (wrapper && videoContainer) {
+                    // Move the video container to the body
+                    document.body.appendChild(videoContainer);
+                    // Remove the wrapper
+                    wrapper.remove();
+                }
+            }
+        });
+
+        //Get video url and loading animation
         var manifestUri = getParameter("link");
-        //Spinner svg
         const svgPath = './spinner.svg';
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        
+        //Loading the shaka player
+        document.addEventListener('shaka-ui-loaded', init);
         function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -168,7 +191,7 @@
                     span.textContent = 'panorama';
                     button.insertBefore(span, button.firstChild);
                 });
-                
+
                 document.querySelectorAll('.shaka-forward-rewind-container-icon').forEach((element) => {
                     element.classList.add('material-icons-round');
                 });
@@ -180,11 +203,8 @@
                         .filter((_, el) => $(el).text().trim() === "Undetermined")
                         .text("Default");
                 };
-
-                // Run once on DOM ready
                 replaceUndeterminedText();
 
-                // Observe dynamic content updates for language and audio spans
                 const textObserver = new MutationObserver(replaceUndeterminedText);
                 textObserver.observe(document.body, {
                     subtree: true,
@@ -193,31 +213,10 @@
                 });
             });
 
-            $(document).ready(function () {
-                // Check for the "fullscreen" URL parameter
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.has("fullscreen")) {
-                    // Remove body constraints
-                    $("body").css({
-                        display: "block",
-                        justifyContent: "",
-                        width: "100%",
-                        maxWidth: "none"
-                    });
-
-                    // Force video container to 100% width
-                    $("#video-container").css({
-                        width: "100%",
-                        maxWidth: "none"
-                    });
-                }
-            });
-
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Replace spinner SVG on shaka-hidden addition
-
+        // Replace spinner SVG on shaka to get the mod animation.
         function replaceSpinnerSVG() {
             fetch(svgPath)
                 .then(response => response.text())
@@ -249,7 +248,7 @@
         spinnerObserver.observe(document.body, observerConfig);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        //Fetch errors
         function onPlayerErrorEvent(event) {
             onPlayerError(event.detail);
         }
