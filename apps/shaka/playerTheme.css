@@ -18,6 +18,11 @@
   font-family: 'DM Sans', serif;
 }
 
+.youtube-theme .shaka-resolution-button .shaka-current-selection-span
+ {
+    color: rgb(255 255 255 / 50%);
+}
+
 .youtube-theme ::-webkit-scrollbar {
   width: 10px;
   /* Set the width of the scrollbar */

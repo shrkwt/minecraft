@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Shaka Player Project</title>
 
-    <!-- Shaka Player Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/shaka-player.compiled.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/shaka-player.ui.min.js"></script>
+    <!-- Shaka Player Libraries
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.13.2/shaka-player.compiled.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.13.2/shaka-player.ui.min.js"></script>-->
+    <script src="shaka-player.compiled.js"></script>
+    <script src="shaka-player.ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mux.js@6.2.0/dist/mux.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 
     <!-- Shaka Player CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/controls.css" />
+    <link rel="stylesheet" href="controls.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./playerTheme.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
@@ -152,7 +154,7 @@
                 button.insertBefore(span, button.firstChild);
             });
 
-                /** Replace "Undetermined" text with "Default"
+                // Replace "Undetermined" text with "Default"
                 const replaceUndeterminedText = () => {
                     $('div.shaka-audio-languages button span.shaka-chosen-item, button.shaka-language-button label span.shaka-current-selection-span')
                         .filter((_, el) => $(el).text().trim() === "Undetermined")
@@ -168,7 +170,7 @@
                     subtree: true,
                     childList: true,
                     characterData: true
-                });**/
+                });
             });
 
             $(document).ready(function () {
