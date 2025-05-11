@@ -16,11 +16,11 @@
 
 .youtube-theme * {
   font-family: 'DM Sans', serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.youtube-theme .shaka-resolution-button .shaka-current-selection-span
- {
-    color: rgb(255 255 255 / 50%);
+.shaka-fast-foward-container, .shaka-rewind-container {
+  background-color: #00000070;
 }
 
 .youtube-theme ::-webkit-scrollbar {

@@ -23,9 +23,9 @@
         rel="stylesheet" />
 
     <!-- Icons -->
-     <link type="image/png" rel="shortcut icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
-     <link type="image/png" rel="icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
-     <link type="image/png" rel="apple-touch-icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
+    <link type="image/png" rel="shortcut icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
+    <link type="image/png" rel="icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
+    <link type="image/png" rel="apple-touch-icon" href="//gaminglnk.eu.org/assets/img/favicon-player.png">
 
     <style>
         body {
@@ -47,7 +47,6 @@
             width: 100%;
             height: auto;
         }
-        
     </style>
 </head>
 
@@ -138,7 +137,7 @@
                     "shaka-save.video-frame-button": "panorama"
                 };
 
-               $.each(buttonIcons, (buttonClass, iconName) => {
+                $.each(buttonIcons, (buttonClass, iconName) => {
                     $(`button.${buttonClass} label`).each(function () {
                         const $label = $(this);
                         if (!$label.find('.material-icons-round').length) {
@@ -148,11 +147,16 @@
                 });
 
                 document.querySelectorAll('button[aria-label="Save video frame"] label').forEach((button) => {
-                const span = document.createElement('b');
-                span.className = 'material-icons-round';
-                span.textContent = 'panorama';
-                button.insertBefore(span, button.firstChild);
-            });
+                    const span = document.createElement('b');
+                    span.className = 'material-icons-round';
+                    span.textContent = 'panorama';
+                    button.insertBefore(span, button.firstChild);
+                });
+                
+                document.querySelectorAll('.shaka-forward-rewind-container-icon').forEach((element) => {
+                    element.classList.add('material-icons-round');
+                });
+
 
                 // Replace "Undetermined" text with "Default"
                 const replaceUndeterminedText = () => {
@@ -195,7 +199,6 @@
 
         }
 
-    
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Replace spinner SVG on shaka-hidden addition
 
