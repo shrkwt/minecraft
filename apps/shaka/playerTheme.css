@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend+Deca:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 /*
   .shaka-video-container * {
     font-family: "Lexend Deca", "Mulish", "Roboto", sans-serif;
   }
   */
-  
-  
-.material-icons-round {
-    font-family: 'Material Symbols Outlined' !important;
-  }
 
-.youtube-theme label > b + span {
-    margin-right: auto;
+
+.material-icons-round {
+  font-family: 'Material Symbols Outlined' !important;
+}
+
+.youtube-theme label>b+span {
+  margin-right: auto;
 }
 
 .youtube-theme * {
@@ -19,23 +19,42 @@
 }
 
 .youtube-theme ::-webkit-scrollbar {
-  width: 10px; /* Set the width of the scrollbar */
+  width: 10px;
+  /* Set the width of the scrollbar */
 }
 
 .youtube-theme ::-webkit-scrollbar-track {
-  background: #00000000; /* Set the track color */
+  background: #00000000;
+  /* Set the track color */
 }
 
 .youtube-theme ::-webkit-scrollbar-thumb {
-  background: #525252; /* Set the thumb color */
-  border-radius: 5px; /* Optional: Round the corners of the thumb */
+  background: #525252;
+  /* Set the thumb color */
+  border-radius: 5px;
+  /* Optional: Round the corners of the thumb */
 }
 
 .youtube-theme .shaka-overflow-button label .material-icons-round,
 .youtube-theme .shaka-tooltip label .material-icons-round {
-  padding-left: 10px;
+  padding-left: 13px;
 }
 
+.youtube-theme #shaka-player-ui-time-container {
+  background-color: rgba(27, 27, 27, 0.48);
+  border: none;
+  box-shadow: none;
+  /* border: 1px solid #000; */
+  border-radius: 5px;
+  color: #ebebeb;
+  overflow: hidden;
+  position: absolute;
+  font-size: 18px;
+  padding-bottom: 3px;
+  top: -38px !important;
+  /* visibility: hidden; */
+  z-index: 1;
+}
 
 .youtube-theme .shaka-bottom-controls {
   width: 100%;
@@ -214,23 +233,25 @@
 /* Default for smaller screens */
 .youtube-theme .shaka-overflow-menu,
 .youtube-theme .shaka-settings-menu {
-    min-width: 275px;
+  min-width: 275px;
 }
 
 /* Medium screens */
 @media (min-width: 600px) {
-    .youtube-theme .shaka-overflow-menu,
-    .youtube-theme .shaka-settings-menu {
-        min-width: 300px;
-    }
+
+  .youtube-theme .shaka-overflow-menu,
+  .youtube-theme .shaka-settings-menu {
+    min-width: 300px;
+  }
 }
 
 /* Larger screens */
 @media (min-width: 1095px) {
-    .youtube-theme .shaka-overflow-menu,
-    .youtube-theme .shaka-settings-menu {
-        min-width: 320px;
-    }
+
+  .youtube-theme .shaka-overflow-menu,
+  .youtube-theme .shaka-settings-menu {
+    min-width: 320px;
+  }
 }
 
 .youtube-theme .shaka-settings-menu {
@@ -334,7 +355,7 @@
 
 .youtube-theme .shaka-no-propagation button {
   height: 45px;
-} 
+}
 
 .youtube-theme .shaka-back-to-overflow-button {
   padding: 8px 0;
