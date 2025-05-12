@@ -8,10 +8,11 @@
 
     <!-- Shaka Player Libraries
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.13.2/shaka-player.compiled.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.13.2/shaka-player.ui.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.13.2/shaka-player.ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mux.js@6.2.0/dist/mux.js"></script>-->
     <script src="shaka-player.compiled.js"></script>
     <script src="shaka-player.ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mux.js@6.2.0/dist/mux.js"></script>
+    <script src="ui_fix_initiator.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 
@@ -53,44 +54,23 @@
 <body>
 
     <!-- Shaka Player Container -->
-        <div class="youtube-theme" id="video-container" data-shaka-player-container
-            data-shaka-player-cast-receiver-id="07AEE832">
-            <video poster='https://picsum.photos/1200/675.webp?grayscale' data-shaka-player id="video"></video>
-        </div>
+    <div class="youtube-theme" id="video-container" data-shaka-player-container
+        data-shaka-player-cast-receiver-id="07AEE832">
+        <video poster='https://picsum.photos/1200/675.webp?grayscale' data-shaka-player id="video"></video>
+    </div>
 
     <script>
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        function getParameter(parameterName) {
-            let parameters = new URLSearchParams(window.location.search);
-            return parameters.get(parameterName);
-        }
-
-        // Code to trigger fullscreen in the presence of "?fullscreen"
-        window.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-
-            if (urlParams.has("fullscreen")) {
-                const wrapper = document.querySelector(".wrapper");
-                const videoContainer = document.querySelector("#video-container");
-
-                if (wrapper && videoContainer) {
-                    // Move the video container to the body
-                    document.body.appendChild(videoContainer);
-                    // Remove the wrapper
-                    wrapper.remove();
-                }
-            }
-        });
-
-        //Get video url and loading animation
-        var manifestUri = getParameter("link");
+        const params = new URLSearchParams(window.location.search);
+        const manifestUri = params.get('link');
+        const fullscreenMode = params.has('fullscreen');
         const svgPath = './spinner.svg';
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
         //Loading the shaka player
         document.addEventListener('shaka-ui-loaded', init);
+        
+        ////////--------------------------------------------------------////////
+        ////////--------------------------------------------------------////////
+        ////////--------------------------------------------------------////////
+
         function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -126,123 +106,21 @@
             // Attach player and UI to the window to make it easy to access in the JS console.
             window.player = player;
             window.ui = ui;
-
-            // Listen for error events.
             player.addEventListener('error', onPlayerErrorEvent);
             controls.addEventListener('error', onUIErrorEvent);
 
-            try {
-                player.load(manifestUri).then(() => {
-                    console.log('The video has now been loaded!');
-                });
-            } catch (error) {
-                onPlayerError(error);
-            }
-
-            $(document).ready(function () {
-                // Update static text replacements
-                $(".shaka-overflow-menu-button").text("settings");
-                $(".shaka-back-to-overflow-button .material-icons-round").text("arrow_back_ios_new");
-
-                // Replace icons for various buttons
-                const buttonIcons = {
-                    "shaka-language-button": "record_voice_over",
-                    "shaka-resolution-button": "tune",
-                    "shaka-playbackrate-button": "slow_motion_video",
-                    "shaka-pip-button": "pip",
-                    "shaka-cast-button": "cast",
-                    "shaka-loop-button": "repeat",
-                    "shaka-caption-button": "subtitles",
-                    "shaka-save.video-frame-button": "panorama"
-                };
-
-                $.each(buttonIcons, (buttonClass, iconName) => {
-                    $(`button.${buttonClass} label`).each(function () {
-                        const $label = $(this);
-                        if (!$label.find('.material-icons-round').length) {
-                            $label.prepend(`<b class="material-icons-round">${iconName}</b>`);
-                        }
-                    });
-                });
-
-                document.querySelectorAll('button[aria-label="Save video frame"] label').forEach((button) => {
-                    const span = document.createElement('b');
-                    span.className = 'material-icons-round';
-                    span.textContent = 'panorama';
-                    button.insertBefore(span, button.firstChild);
-                });
-
-                document.querySelectorAll('.shaka-forward-rewind-container-icon').forEach((element) => {
-                    element.classList.add('material-icons-round');
-                });
+            player.load(manifestUri).then(() => {
+                console.log('Loading video succeeded!');
+            }).catch(onPlayerError);
 
 
-                // Replace "Undetermined" text with "Default"
-                const replaceUndeterminedText = () => {
-                    $('div.shaka-audio-languages button span.shaka-chosen-item, button.shaka-language-button label span.shaka-current-selection-span')
-                        .filter((_, el) => $(el).text().trim() === "Undetermined")
-                        .text("Default");
-                };
-                replaceUndeterminedText();
-
-                const textObserver = new MutationObserver(replaceUndeterminedText);
-                textObserver.observe(document.body, {
-                    subtree: true,
-                    childList: true,
-                    characterData: true
-                });
-            });
+            // Below are 3 UI fixes
+            replaceSpinnerSVG(svgPath);
+            replaceIcons();
+            //replaceUndeterminedText();
 
         }
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Replace spinner SVG on shaka to get the mod animation.
-        function replaceSpinnerSVG() {
-            fetch(svgPath)
-                .then(response => response.text())
-                .then((svgContent) => {
-                    document.querySelectorAll('.shaka-spinner-svg').forEach((svgElement) => {
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = svgContent.trim();
-                        const newSVG = tempDiv.querySelector('svg');
-                        if (newSVG) {
-                            svgElement.replaceWith(newSVG);
-                        }
-                    });
-                })
-                .catch(console.error);
-        }
-        const observerConfig = {
-            subtree: true,
-            attributes: true,
-            attributeFilter: ["class"]
-        };
-        const spinnerObserver = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                const $target = $(mutation.target);
-                if ($target.hasClass("shaka-spinner-container") && $target.hasClass("shaka-hidden")) {
-                    replaceSpinnerSVG();
-                }
-            });
-        });
-        spinnerObserver.observe(document.body, observerConfig);
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Fetch errors
-        function onPlayerErrorEvent(event) {
-            onPlayerError(event.detail);
-        }
-
-        function onPlayerError(error) {
-            console.error('Error code', error.code, 'object', error);
-        }
-
-        function onUIErrorEvent(event) {
-            onPlayerError(event.detail);
-        }
-
     </script>
-
 </body>
 
 </html>
