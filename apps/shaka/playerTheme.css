@@ -41,7 +41,9 @@
 }
 
 .youtube-theme .shaka-overflow-button label .material-icons-round,
-.youtube-theme .shaka-tooltip label .material-icons-round {
+.youtube-theme .shaka-tooltip label .material-icons-round,
+.youtube-theme .shaka-overflow-button .material-icons-round,
+.youtube-theme .shaka-tooltip .material-icons-round {
   padding-left: 13px;
 }
 
@@ -298,7 +300,7 @@
 }
 
 .youtube-theme .shaka-overflow-menu button i {
-  display: none;
+  display: none !important;
 }
 
 .youtube-theme .shaka-overflow-menu button .shaka-overflow-button-label {

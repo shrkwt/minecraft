@@ -52,6 +52,7 @@ function replaceIcons() {
         'shaka-caption-button': 'subtitles',
     };
     Object.entries(buttonIcons).forEach(([buttonClass, iconName]) => {
+        
         document.querySelectorAll(`button.${buttonClass} label`).forEach(label => {
             if (!label.querySelector('.material-icons-round')) {
                 const icon = document.createElement('b');
@@ -60,6 +61,12 @@ function replaceIcons() {
                 label.prepend(icon);
             }
         });
+        document.querySelectorAll(`button.${buttonClass} i`).forEach((iElement) => {
+    if (iElement.closest("button.shaka-overflow-button")) {
+        iElement.remove();
+    }
+});
+
     });
     $(".shaka-overflow-menu-button").text("settings");
     $(".shaka-back-to-overflow-button .material-icons-round").text("arrow_back_ios_new");
