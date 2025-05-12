@@ -38,32 +38,14 @@
             background-color: #000;
         }
 
-        .wrapper {
-            width: 100%;
-            max-width: 925px;
-            margin: 20px auto;
-            padding: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            background-color: #000;
-        }
-
         #video-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            /* 16:9 Aspect Ratio */
+            width: 80%;
+            max-width: 900px;
         }
 
-        #video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        video {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #000;
-            border-radius: 0;
+            height: auto;
         }
     </style>
 </head>
@@ -71,12 +53,10 @@
 <body>
 
     <!-- Shaka Player Container -->
-    <div class="wrapper">
         <div class="youtube-theme" id="video-container" data-shaka-player-container
             data-shaka-player-cast-receiver-id="07AEE832">
             <video poster='https://picsum.photos/1200/675.webp?grayscale' data-shaka-player id="video"></video>
         </div>
-    </div>
 
     <script>
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
