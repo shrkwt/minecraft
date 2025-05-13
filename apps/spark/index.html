@@ -10,47 +10,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap" rel="stylesheet" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
     ::-webkit-scrollbar {
-      display: none;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
-
-    .hola_seek_zone {
-      display: none !important;
-    }
-
-    .video {
-      width: 100% !important;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      object-fit: cover;
-    }
-
-    .vjs5-hola-skin,
-    .video-js,
-    #player,
-    div {
-      font-family: "Lexend Deca", Roboto, Arial, Helvetica, sans-serif !important;
-      -webkit-font-smoothing: antialiased;
-    }
-
+        display: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hola_seek_zone {
+        display: none !important;
+      }
     body {
-      font-family: 'DM Sans', serif;
+      font-family: 'Lexend Deca', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -60,36 +36,59 @@
     }
 
     #video-container {
-      width: 80%;
-      max-width: 900px;
+      width: 100%;
+    }
+
+    /* Apply max-width only on larger displays */
+    @media (min-width: 768px) {
+      #video-container {
+        width: 100%;
+        max-width: 1440px;
+      }
     }
 
     video {
       width: 100%;
       height: auto;
     }
+
+    .vjs5-hola-skin,
+      .video-js,
+      #player,
+      .video-js div {
+        font-family: "Lexend Deca", Roboto, Arial, Helvetica, sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* after your existing CSS */
+.video-js, .vjs-control-bar {
+  font-size: 14px !important;  /* you can tweak this up/down */
+}
   </style>
 </head>
 
 <body>
+  <div id="video-container"></div>
+
+  <template id="video-template">
+    <video id="player" class="video-js video vjs-default-skin" controls preload="none"
+      data-poster="https://picsum.photos/1200/675.webp">
+      <source type="application/x-mpegURL">
+    </video>
+  </template>
+
   <script>
-    function getParameter(parameterName) {
-      let parameters = new URLSearchParams(window.location.search);
-      return parameters.get(parameterName);
-    }
+    (function () {
+      const src = new URLSearchParams(location.search).get('link');
+      if (!src) return;
 
-    var videosrc = getParameter("link");
+      // Clone and inject template
+      const template = document.getElementById('video-template').content.cloneNode(true);
+      template.querySelector('source').src = src;
+      document.getElementById('video-container').appendChild(template);
 
-    if (getParameter("link")) {
-      document.write(
-        "<video data-poster='https://picsum.photos/854/480.webp?grayscale' height='100em' preload='none' id='player' class='video-js video vjs-default-skin' controls ><source src='" +
-        videosrc +
-        "' /></video>"
-      );
-      (function () {
-        window.hola_player();
-      })();
-    }
+      // Init player
+      window.hola_player && requestAnimationFrame(window.hola_player);
+    })();
   </script>
 </body>
 
